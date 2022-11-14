@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: #Dictionary
+  name: rest-api-deployment
+spec: # Dictionary
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rest-api
+  template:  
+    metadata: # Dictionary
+      name: rest-api-pod
+      labels: # Dictionary
+        app: rest-api  # Key value pairs
+    spec:
+      containers: # List
+        - name: rest-api-container
+          image: bibek2017/spring-aks-test:latest
+          ports: 
+            - containerPort: 7000

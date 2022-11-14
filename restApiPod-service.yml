@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: rest-api-loadbalancer-service
+spec:
+  type: LoadBalancer # ClusterIp, # NodePort
+  selector:
+    app: rest-api
+  ports: 
+    - name: http
+      port: 7000 # Service Port
+      targetPort: 7000 # Container Port
